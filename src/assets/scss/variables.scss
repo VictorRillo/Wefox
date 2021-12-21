@@ -1,0 +1,36 @@
+@use 'sass:map';
+@import 'node_modules/@angular/material/core/theming/_palette';
+
+$wefox-palette: (
+  50: febee,
+  100: #f4e6f6,
+  200: #d298de,
+  300: #c06fd0,
+  400: #b24fc6,
+  500: #a433bb,
+  600: #952fb5,
+  700: #822aac,
+  800: #7026a4,
+  900: #501e96,
+  A100: #f49cff,
+  A200: #c062d3,
+  A400: #a921c2,
+  A700: #7c0db0,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
