@@ -8,6 +8,10 @@ import { HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {responseHttpInterceptorProvider} from "./core/interceptor/response-interceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TripsListModule} from "./modules/trips-list/trips-list.module";
+import {EditTripDialogModule} from "./modules/edit-trip-dialog/edit-trip-dialog.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { TranslateErrorPipe } from './shared/pipes/translate-error.pipe';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -16,7 +20,8 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TranslateErrorPipe
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,10 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TripsListModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [responseHttpInterceptorProvider],
   bootstrap: [AppComponent]

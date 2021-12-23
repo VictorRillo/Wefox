@@ -1,3 +1,24 @@
 {
-
+  "general": {
+    "accept": "Accept",
+    "cancel": "Cancel",
+    "add-trip": "Add trip"
+  },
+  "edit-trip-dialog": {
+    "dialog-edit-title": "Edit trip",
+    "dialog-add-title": "Add trip",
+    "place": "Place",
+    "description": "Description",
+    "lat": "Latitude",
+    "lon": "Longitude",
+    "image": "Image URL",
+    "image-preview": "Image preview"
+  },
+  "table": {
+    "search": "Place name",
+    "search-tootltip": "Search place name",
+    "city": "Place",
+    "creation-date": "Creation date",
+    "last-update-date": "Last update date"
+  }
 }

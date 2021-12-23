@@ -1,0 +1,59 @@
+<div class="title-area">
+  <div mat-dialog-title>
+    {{ data.title | translate | uppercase}}
+  </div>
+  <div class="close-button">
+    <button mat-icon-button (click)="onNoClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <div class="row">
+      <mat-form-field appearance="outline" class="mat-form-field col-6">
+        <mat-label>{{"edit-trip-dialog.place" | translate}}</mat-label>
+        <input type="text" matInput formControlName="title"/>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mat-form-field col-3">
+        <mat-label>{{"edit-trip-dialog.lat" | translate}}</mat-label>
+        <input type="text" matInput formControlName="lat"/>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mat-form-field col-3">
+        <mat-label>{{"edit-trip-dialog.lon" | translate}}</mat-label>
+        <input type="text" matInput formControlName="long"/>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline" class="mat-form-field col-12">
+        <mat-label>{{"edit-trip-dialog.description" | translate}}</mat-label>
+        <textarea type="text" matInput formControlName="content"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline" class="mat-form-field col-12">
+        <mat-label>{{"edit-trip-dialog.image" | translate}}</mat-label>
+        <input type="text" matInput formControlName="image_url"/>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="row" style="text-align: center">
+    <div class="col-12">
+      <mat-label style="">{{"edit-trip-dialog.image-preview" | translate}}:</mat-label>
+    </div>
+    <div class="col-12">
+      <img *ngIf="!form.get('image_url').value" src="https://www.ciberisciii.es/images/nofoto.png" height="300"/>
+      <img *ngIf="form.get('image_url').value" src="{{form.get('image_url').value}}" height="300" style="max-width: 100%"/>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions style="vertical-align: bottom">
+  <div class="button-container-field-inline dialog-actions">
+    <button mat-raised-button class="secondary" (click)="onNoClick()">
+      {{'general.cancel' | translate}}
+    </button>
+    <button mat-raised-button class="main" [mat-dialog-close]="form.value" [disabled]="!form.valid">
+      {{'general.accept' | translate}}
+    </button>
+  </div>
+</div>
