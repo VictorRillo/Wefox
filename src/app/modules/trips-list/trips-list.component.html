@@ -1,4 +1,9 @@
 <div class="row">
+    <div class="col-12">
+        <h1>{{"travel-history" | translate}}</h1>
+    </div>
+</div>
+<div class="row">
   <app-trips-table (onDelete)="handleOnDelete($event)" (onEdit)="handleOnEdit($event)" class="col-12"
                    [places]="places |async"></app-trips-table>
 </div>
@@ -9,7 +14,7 @@
     </button>
   </div>
 </div>
-<div class="row">
+<div class="row" style="padding-top: 50px;">
     <div class="col-12">
         <app-random-trip></app-random-trip>
     </div>
