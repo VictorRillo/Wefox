@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-12" style="text-align: center">
+    <h1>{{"travel-random-header" | translate}}</h1>
+  </div>
+</div>
+<div class="row" *ngIf="country">
+  <div class="col-12" style="text-align: center">
+    <h2>{{country.name}}</h2>
+  </div>
+</div>
+<div *ngIf="options" style="height: 500px; width: 100%" leaflet [leafletOptions]="options" [leafletCenter]="center">
+  <div [leafletLayer]="layer"></div>
+</div>
+<div class="row">
+  <div class="button-container-field-inline dialog-actions col-12">
+    <button mat-raised-button class="main" (click)="generateRandomTrip()">
+      {{'travel' | translate}}
+    </button>
+  </div>
+</div>
+

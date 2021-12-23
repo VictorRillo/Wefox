@@ -31,12 +31,14 @@
       <mat-form-field appearance="outline" class="mat-form-field col-12">
         <mat-label>{{"edit-trip-dialog.description" | translate}}</mat-label>
         <textarea type="text" matInput formControlName="content"></textarea>
+        <mat-error  *ngIf="!form.get('content').valid">{{form.get('content').errors | translateError}}</mat-error>
       </mat-form-field>
     </div>
     <div class="row">
       <mat-form-field appearance="outline" class="mat-form-field col-12">
         <mat-label>{{"edit-trip-dialog.image" | translate}}</mat-label>
         <input type="text" matInput formControlName="image_url"/>
+        <mat-error  *ngIf="!form.get('image_url').valid">{{form.get('image_url').errors | translateError}}</mat-error>
       </mat-form-field>
     </div>
   </form>

@@ -5,6 +5,7 @@ import {TripsTableModule} from "../../shared/components/trips-table/trips-table.
 import {TranslateModule} from "@ngx-translate/core";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
+import {RandomTripModule} from "../../shared/components/random-trip/random-trip.module";
 
 
 
@@ -15,7 +16,8 @@ import {MatButtonModule} from "@angular/material/button";
         TripsTableModule,
         TranslateModule,
         MatDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        RandomTripModule
     ],
   exports: [TripsListComponent]
 })

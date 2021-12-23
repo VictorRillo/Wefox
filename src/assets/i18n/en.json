@@ -5,6 +5,8 @@
     "add-trip": "Add trip",
     "back": "Volver"
   },
+  "travel-random-header": "Don't you know which country to travel to?",
+  "travel": "Travel",
   "edit-trip-dialog": {
     "dialog-edit-title": "Edit trip",
     "dialog-add-title": "Add trip",
