@@ -6,19 +6,21 @@ import {TranslateModule} from "@ngx-translate/core";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {RandomTripModule} from "../../shared/components/random-trip/random-trip.module";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 
 @NgModule({
   declarations: [TripsListComponent],
-    imports: [
-        CommonModule,
-        TripsTableModule,
-        TranslateModule,
-        MatDialogModule,
-        MatButtonModule,
-        RandomTripModule
-    ],
+  imports: [
+    CommonModule,
+    TripsTableModule,
+    TranslateModule,
+    MatDialogModule,
+    MatButtonModule,
+    RandomTripModule,
+    MatFormFieldModule
+  ],
   exports: [TripsListComponent]
 })
 export class TripsListModule { }

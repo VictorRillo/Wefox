@@ -88,4 +88,16 @@ h2 {
   padding-top: 25px;
   padding-bottom: 25px;
   max-width: 1080px;
+  background-color: #f9f9f9;
+}
+
+.logo-row {
+  background-color: $primary-palette;
+}
+
+.logo {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
 }
