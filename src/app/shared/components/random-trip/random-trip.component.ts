@@ -26,6 +26,7 @@ export class RandomTripComponent implements OnInit {
   getAllCountries() {
     this.service.getAll().pipe(take(1)).subscribe(countries => {
       this.countries = countries;
+      this.generateRandomTrip();
     });
   }
 
