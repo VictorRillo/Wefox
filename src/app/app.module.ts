@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TripsListModule} from "./modules/trips-list/trips-list.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {EditTripDialogModule} from "./modules/edit-trip-dialog/edit-trip-dialog.module";
+import {TripDetailModule} from "./modules/trip-detail/trip-detail.module";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,11 +37,8 @@ export function createTranslateLoader(http: HttpClient) {
     TripsListModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    TripsListModule,
     EditTripDialogModule,
-    FormsModule,
-    ReactiveFormsModule
+    TripDetailModule
   ],
   providers: [responseHttpInterceptorProvider],
   bootstrap: [AppComponent]

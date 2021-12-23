@@ -1,0 +1,37 @@
+<div *ngIf="place">
+  <div class="row">
+    <div class="col-12" style="text-align: center">
+      <h1>{{place.title | uppercase}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" style="text-align: center">
+      <img src="{{place.image_url}}" style="max-width: 50vh"/>
+    </div>
+  </div>
+  <div class="row" style="text-align: justify; padding-top: 25px; padding-bottom: 25px">
+    <div class="col-12">
+      <mat-label>{{place.content}}</mat-label>
+    </div>
+  </div>
+  <div style="height: 500px; width: 100%"
+       leaflet
+       [leafletOptions]="options">
+    <div [leafletLayer]="layer"></div>
+  </div>
+  <div class="row" style="color: grey;">
+    <div class="col-12">
+      <mat-label>{{'edit-trip-dialog.created' | translate}}: {{place.created_at | date: 'dd/MM/yyyy'}}</mat-label>
+    </div>
+    <div class="col-12">
+      <mat-label>{{'edit-trip-dialog.updated' | translate}}: {{place.updated_at | date: 'dd/MM/yyyy'}}</mat-label>
+    </div>
+  </div>
+  <div style="vertical-align: bottom" class="row">
+    <div class="button-container-field-inline dialog-actions col-12">
+      <button mat-raised-button class="main" routerLink="/list">
+        {{'general.back' | translate}}
+      </button>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,8 @@
   "general": {
     "accept": "Accept",
     "cancel": "Cancel",
-    "add-trip": "Add trip"
+    "add-trip": "Add trip",
+    "back": "Volver"
   },
   "edit-trip-dialog": {
     "dialog-edit-title": "Edit trip",
@@ -12,7 +13,9 @@
     "lat": "Latitude",
     "lon": "Longitude",
     "image": "Image URL",
-    "image-preview": "Image preview"
+    "image-preview": "Image preview",
+    "created": "Created",
+    "updated": "Updated"
   },
   "table": {
     "search": "Place name",

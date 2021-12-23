@@ -71,3 +71,15 @@ $accent-palette:  map.get($color-config, 900);
   width: 100%;
   text-align: right;
 }
+
+h1 {
+  color: $primary-palette;
+  font-size: 32px !important;
+  font-weight: bold !important;
+}
+
+.container {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  max-width: 1080px;
+}

@@ -15,9 +15,9 @@
     <th class="header"></th>
   </tr>
   <tr class="table-row" *ngFor="let place of places">
-    <td class="cell">{{place.title}}</td>
-    <td class="cell">{{place.created_at | date: 'dd/MM/yyyy'}}</td>
-    <td class="cell">{{place.updated_at | date: 'dd/MM/yyyy'}}</td>
+    <td class="cell" [routerLink]="['/detail', place.id]">{{place.title}}</td>
+    <td class="cell" [routerLink]="['/detail', place.id]">{{place.created_at | date: 'dd/MM/yyyy'}}</td>
+    <td class="cell" [routerLink]="['/detail', place.id]">{{place.updated_at | date: 'dd/MM/yyyy'}}</td>
     <td class="cell no-pointer">
       <mat-icon (click)="editField(place)" class="pointer" aria-hidden="false" >edit</mat-icon>
       <mat-icon (click)="deleteField(place)" class="pointer" aria-hidden="false" >delete</mat-icon>
