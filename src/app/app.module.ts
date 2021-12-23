@@ -34,6 +34,10 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     BrowserAnimationsModule,
     TripsListModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    TripsListModule,
     EditTripDialogModule,
     FormsModule,
     ReactiveFormsModule
