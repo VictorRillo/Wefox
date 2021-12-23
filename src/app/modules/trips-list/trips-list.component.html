@@ -1,0 +1,10 @@
+<div class="row">
+  <app-trips-table (onDelete)="handleOnDelete($event)" (onEdit)="handleOnEdit($event)" class="offset-2 col-8" [places]="places |async"></app-trips-table>
+</div>
+<div style="vertical-align: bottom" class="row">
+  <div class="button-container-field-inline dialog-actions col-10">
+    <button mat-raised-button class="main" (click)="handleOnAdd()">
+      {{'general.add-trip' | translate}}
+    </button>
+  </div>
+</div>

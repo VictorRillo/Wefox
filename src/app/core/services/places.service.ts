@@ -20,7 +20,7 @@ export class PlacesService {
     return this.http.post<PlaceI>(environment.places_api_url, place);
   }
   update(place: PlaceI): Observable<PlaceI> {
-    return this.http.put<PlaceI>(environment.places_api_url, place);
+    return this.http.put<PlaceI>(`${environment.places_api_url}/${place.id}`, place);
   }
   delete(id: number): Observable<null> {
     return this.http.delete<null>(`${environment.places_api_url}/${id}`);
