@@ -25,7 +25,13 @@
     "search-tootltip": "Search place name",
     "city": "Lugar",
     "creation-date": "Fecha de creación",
-    "last-update-date": "Fecha de última actualización"
+    "last-update-date": "Fecha de última actualización",
+    "no-data": "No hay datos que coincidan con el filtro",
+    "items-per-page": "Items por página",
+    "first-page":"Primera página",
+    "last-page": "Última página",
+    "next-page": "Siguiente página",
+    "previous-page": "Página anterior"
   },
   "error": {
     "input": {

@@ -1,26 +1,43 @@
-<!--<div class="row">-->
-<!--  <div class="offset-2 col-8">-->
-<!--    <mat-form-field class="example-full-width" appearance="fill">-->
-<!--      <mat-label>{{'table.search' | translate}}</mat-label>-->
-<!--      <input matInput placeholder="{{'table.search-tootltip' | translate}}">-->
-<!--    </mat-form-field>  </div>-->
-<!--</div>-->
-<table class="table">
-  <tr class="header-row">
-    <th *ngFor="let header of headers" class="header pointer" (click)="sortArray(header.field)">
-      {{header.title | translate | uppercase}}
-      <mat-icon *ngIf="header.field === field && !asc" class="pointer" aria-hidden="false" >keyboard_arrow_up</mat-icon>
-      <mat-icon *ngIf="header.field === field && asc" class="pointer" aria-hidden="false" >keyboard_arrow_down</mat-icon>
-    </th>
-    <th class="header"></th>
-  </tr>
-  <tr class="table-row" *ngFor="let place of places">
-    <td class="cell" [routerLink]="['/detail', place.id]">{{place.title}}</td>
-    <td class="cell" [routerLink]="['/detail', place.id]">{{place.created_at | date: 'dd/MM/yyyy'}}</td>
-    <td class="cell" [routerLink]="['/detail', place.id]">{{place.updated_at | date: 'dd/MM/yyyy'}}</td>
-    <td class="cell no-pointer">
-      <mat-icon (click)="editField(place)" class="pointer" aria-hidden="false" >edit</mat-icon>
-      <mat-icon (click)="deleteField(place)" class="pointer" aria-hidden="false" >delete</mat-icon>
-    </td>
-  </tr>
-</table>
+<div *ngIf="places">
+  <mat-form-field appearance="standard">
+    <mat-label>{{'table.search' | translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="{{'table.search-tootltip' | translate}}" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8 table">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'table.city' | translate | uppercase}} </th>
+        <td mat-cell *matCellDef="let row" [routerLink]="['/detail', row.id]"> {{row.title}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'table.creation-date' | translate | uppercase}} </th>
+        <td mat-cell *matCellDef="let row" [routerLink]="['/detail', row.id]"> {{row.created_at  | date: 'dd/MM/yyyy'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="updated_at">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'table.last-update-date' | translate | uppercase}} </th>
+        <td mat-cell *matCellDef="let row" [routerLink]="['/detail', row.id]"> {{row.updated_at  | date: 'dd/MM/yyyy'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="tool">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+                <mat-icon (click)="editField(row)" class="pointer" aria-hidden="false" >edit</mat-icon>
+                <mat-icon (click)="deleteField(row)" class="pointer" aria-hidden="false" >delete</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">{{'table.no-data' | translate}} "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"  ></mat-paginator>
+  </div>
+</div>

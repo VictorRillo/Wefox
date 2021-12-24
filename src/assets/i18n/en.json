@@ -5,7 +5,7 @@
     "add-trip": "Add trip",
     "back": "Back"
   },
-  "travel-random-header": "Don't you know which country to travel to?",
+  "travel-random-header": "Don't you know where to travel?",
   "travel-history": "Travel History",
   "travel": "Travel",
   "edit-trip-dialog": {
@@ -25,7 +25,13 @@
     "search-tootltip": "Search place name",
     "city": "Place",
     "creation-date": "Creation date",
-    "last-update-date": "Last update date"
+    "last-update-date": "Last update date",
+    "no-data": "No data matching the filter",
+    "items-per-page": "Items per page",
+    "first-page":"First page",
+    "last-page": "Last page",
+    "next-page": "Next page",
+    "previous-page": "Previous page"
   },
   "error": {
     "input": {

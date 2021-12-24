@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TripsTableComponent } from './trips-table.component';
 import {TranslateModule} from "@ngx-translate/core";
 import {PLACES_MOCK, PLACES_MOCK_SORTED} from "../../../core/mocks/trips.mock";
+import {MatPaginator} from "@angular/material/paginator";
 
 describe('TripsTableComponent', () => {
   let component: TripsTableComponent;
@@ -11,7 +12,7 @@ describe('TripsTableComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TranslateModule.forRoot()],
-      declarations: [ TripsTableComponent ]
+      declarations: [ TripsTableComponent, MatPaginator ]
     })
     .compileComponents();
   });
@@ -27,16 +28,4 @@ describe('TripsTableComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it ('should sort places', () => {
-    const field = 'title';
-    component.sortArray(field);
-    expect(JSON.stringify(component.places)).toEqual(JSON.stringify(PLACES_MOCK_SORTED));
-    expect(component.field).toEqual(field);
-    expect(component.asc).toBeTrue();
-
-    component.sortArray(field);
-    expect(JSON.stringify(component.places)).toEqual(JSON.stringify(PLACES_MOCK));
-    expect(component.field).toEqual(field);
-    expect(component.asc).toBeFalse();
-  });
 });

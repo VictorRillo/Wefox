@@ -7,73 +7,83 @@ $primary-palette: map.get($color-config, 700);
 $light-primary-palette: map.get($color-config, 25);
 $accent-palette:  map.get($color-config, 900);
 
-.table {
-  table-layout: fixed;
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  text-align: center;
+  width: 30%;
+}
+
+td:last-child, th:last-child {
+  width: 10%;
+}
+
+.mat-sort-header-container {
+  display:flex;
+  justify-content:center;
+}
+
+.mat-sort-header-content {
+  padding-left: 12px !important;
+}
+
+
+table {
+  width: 100%;
   border-style: solid;
   border-color: $accent-palette;
-  background: white;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
-  display: block;
 }
 
-.header-row {
-  background-color: $primary-palette !important;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  min-height: 56px;
-  border: 0;
+.mat-sort-header-content {
+  padding-left: 12px !important;
 }
 
-.header {
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+th.mat-header-cell {
   color: white;
   font-size: 14px;
   font-weight: bold;
   border-right-style: solid;
   border-width: 1px;
   border-color: $accent-palette !important;
-  flex: 1;
-  display: flex;
-  align-items: center;
   overflow: hidden;
   word-wrap: break-word;
-  min-height: inherit;
-  justify-content: center;
-  text-align: center;
   background-color: $primary-palette !important;
 }
 
-.table-row {
-  display: flex;
+td.mat-cell {
+  color: black;
+  word-break: break-word;
+  border-right-style: solid;
+  border-width: 1px;
+  border-color: map.get($color-config, 100);
+  overflow: hidden;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+
+td.mat-cell:last-child {
+  cursor: auto;
+}
+
+tr.mat-row {
   align-items: center;
   box-sizing: border-box;
   min-height: 48px;
   border: 0;
 }
 
-tr.table-row:hover {
-  background: map.get($color-config, 50);
-}
-
-.table-row:nth-child(odd) {
+tr.mat-row:nth-child(even) {
   background-color: $light-primary-palette;
 }
 
-.cell {
-  color: black;
-  word-break: break-word;
-  border-right-style: solid;
-  border-width: 1px;
-  border-color: map.get($color-config, 100);
-  font-size: 14px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  word-wrap: break-word;
-  min-height: inherit;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
+tr.mat-row:hover {
+  background-color: map.get($color-config, 50);
 }
-

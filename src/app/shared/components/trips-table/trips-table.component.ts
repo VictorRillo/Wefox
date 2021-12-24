@@ -1,41 +1,80 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {PlaceI} from "../../models/place.model";
 import {T} from "@angular/cdk/keycodes";
+import {MatTableDataSource} from "@angular/material/table";
+import {MatSort} from "@angular/material/sort";
+import {MatPaginator} from "@angular/material/paginator";
+import {TranslateService, TranslationChangeEvent} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-trips-table',
   templateUrl: './trips-table.component.html',
   styleUrls: ['./trips-table.component.scss']
 })
-export class TripsTableComponent implements OnInit {
-  @Input() places: PlaceI[] = [];
-  @Output() onEdit = new EventEmitter<PlaceI>();
-  @Output() onDelete = new EventEmitter<PlaceI>();
-  public headers: any[] = [
-    {'title': 'table.city', "field": 'title'},
-    {'title': 'table.creation-date', "field": 'created_at'},
-    {'title': 'table.last-update-date', "field": 'updated_at'}
-  ];
-  public field: string;
-  public asc: boolean;
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class TripsTableComponent implements OnInit, AfterViewInit {
+  @Input()
+  get places(): PlaceI[] {
+    return this._places
   }
 
-  sortArray(field: string) {
-    this.asc = field === this.field ? !this.asc : true;
-    this.field = field;
-    this.places.sort((a,b) => {
-      if (!this.asc) {
-        // @ts-ignore
-        return b[field].localeCompare(a[field]);
-      }else {
-        // @ts-ignore
-        return a[field].localeCompare(b[field]);
-      }
+  set places(places: PlaceI[]) {
+    if (places) {
+      this._places = places;
+      this.dataSource = new MatTableDataSource(this.places);
+      this.translateTable();
+      this.dataSource.sort = this.sort;
+    }
+  }
+
+  private _places: PlaceI[] = [];
+
+  @Output() onEdit = new EventEmitter<PlaceI>();
+  @Output() onDelete = new EventEmitter<PlaceI>();
+
+  public displayedColumns: string[] = ['title', 'created_at', 'updated_at', 'tool'];
+  public dataSource: MatTableDataSource<PlaceI>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private translateService: TranslateService) {
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  ngAfterViewInit(): void {
+    this.translateService.onLangChange.subscribe(() => {
+      this.translateTable();
     });
+  }
+
+  translateTable() {
+    this.paginator._intl.itemsPerPageLabel = this.translateService.instant('table.items-per-page');
+    this.paginator._intl.firstPageLabel = this.translateService.instant('table.first-page');
+    this.paginator._intl.lastPageLabel = this.translateService.instant('table.last-page');
+    this.paginator._intl.nextPageLabel = this.translateService.instant('table.next-page');
+    this.paginator._intl.previousPageLabel = this.translateService.instant('table.previous-page');
+    this.dataSource.paginator = this.paginator;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   editField(place: PlaceI) {
