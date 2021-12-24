@@ -1,0 +1,38 @@
+{
+  "general": {
+    "accept": "Aceptar",
+    "cancel": "Cancelar",
+    "add-trip": "Añadir viaje",
+    "back": "Volver"
+  },
+  "travel-random-header": "¿No sabes donde viajar?",
+  "travel-history": "Historial de viajes",
+  "travel": "Viajar",
+  "edit-trip-dialog": {
+    "dialog-edit-title": "Editar viaje",
+    "dialog-add-title": "Añadir viaje",
+    "place": "Lugar",
+    "description": "Descripción",
+    "lat": "Latitud",
+    "lon": "Longitud",
+    "image": "Url de imagen",
+    "image-preview": "Vista previa",
+    "created": "Creado",
+    "updated": "Actualizado"
+  },
+  "table": {
+    "search": "Place name",
+    "search-tootltip": "Search place name",
+    "city": "Lugar",
+    "creation-date": "Fecha de creación",
+    "last-update-date": "Fecha de última actualización"
+  },
+  "error": {
+    "input": {
+      "required": "Campo obligatorio",
+      "only-letters-validator": "Solamente se aceptan letras",
+      "lon-validator": "El valor debe estar entre -90 y 90",
+      "lat-validator": "El valor debe estar entre -180 y 80"
+    }
+  }
+}

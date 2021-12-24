@@ -1,7 +1,15 @@
 <div class="row logo-row">
-    <div class="col-12 logo" [routerLink]="['list']">
-        <img src="assets/images/logo.png" style="height: 60px"/>
+    <div class="col-12 logo">
+      <div>
+        <img src="assets/images/logo.png" style="height: 60px; cursor: pointer;" [routerLink]="['list']"/>
+      </div>
+      <div style="text-align: right; width: 100%;">
+        <img src="assets/images/spain.png" style="height: 30px; cursor: pointer;" *ngIf="currentLang==='en'" (click)="changeLang('es')"/>
+        <img src="assets/images/english.png" style="height: 30px; cursor: pointer;" *ngIf="currentLang==='es'" (click)="changeLang('en')"/>
+      </div>
     </div>
+<!--  <div class="col-1">-->
+<!--  </div>-->
 </div>
 <div class="container">
   <router-outlet></router-outlet>

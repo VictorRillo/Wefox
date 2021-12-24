@@ -9,9 +9,15 @@ import {PlacesService} from "./core/services/places.service";
 })
 export class AppComponent {
   title = 'Wefox';
+  currentLang = 'en';
 
-  constructor(translate: TranslateService, placeService: PlacesService) {
-    translate.setDefaultLang('en');
+  constructor(private translate: TranslateService, placeService: PlacesService) {
+    translate.setDefaultLang(this.currentLang);
     placeService.getAll();
+  }
+
+  changeLang(lang: string) {
+    this.currentLang = lang;
+    this.translate.use(this.currentLang);
   }
 }
