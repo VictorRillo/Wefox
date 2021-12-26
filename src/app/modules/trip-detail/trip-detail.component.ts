@@ -26,13 +26,13 @@ export class TripDetailComponent implements OnInit {
     this.placesService.get(this.route.snapshot.params['tripNumber']).pipe(take(1)).subscribe(place => {
       this.place = place;
 
-
       this.options = {
         layers: [
-          tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, minZoom: 1, attribution: '...' })
+          tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, minZoom: 2, attribution: '...' })
         ],
         zoom: 6,
-        center: latLng(+this.place.lat, +this.place.long)
+        center: latLng(+this.place.lat, +this.place.long),
+        maxBounds: [[84.67351256610522, -174.0234375], [-58.995311187950925, 223.2421875]]
       };
       this.layer = marker([ +this.place.lat, +this.place.long ], {
         icon: icon({

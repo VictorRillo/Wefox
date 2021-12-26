@@ -7,6 +7,8 @@
   },
   "travel-random-header": "¿No sabes donde viajar?",
   "travel-history": "Historial de viajes",
+  "show-map": "Mostrar mapa",
+  "hide-map": "Ocultar mapa",
   "travel": "Viajar",
   "edit-trip-dialog": {
     "dialog-edit-title": "Editar viaje",

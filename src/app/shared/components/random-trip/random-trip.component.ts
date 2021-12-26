@@ -35,10 +35,11 @@ export class RandomTripComponent implements OnInit {
     this.country = this.countries[countryNumber];
     this.options = {
       layers: [
-        tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, minZoom: 1, attribution: '...' })
+        tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, minZoom: 2, attribution: '...' })
       ],
       zoom: 6,
-      center: latLng(+this.country.lat, +this.country.long)
+      center: latLng(+this.country.lat, +this.country.long),
+      maxBounds: [[84.67351256610522, -174.0234375], [-58.995311187950925, 223.2421875]]
     };
     this.layer = marker([ +this.country.lat, +this.country.long ], {
       icon: icon({

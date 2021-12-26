@@ -9,22 +9,24 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {EditTripDialogComponent} from "./edit-trip-dialog.component";
 import {TranslateErrorPipeModule} from "../../shared/pipes/translate-error/translate-error.pipe.module";
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 
 
 
 @NgModule({
   declarations: [EditTripDialogComponent],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    MatDialogModule,
-    MatInputModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatButtonModule,
-    TranslateErrorPipeModule
-  ],
+    imports: [
+        CommonModule,
+        TranslateModule,
+        MatDialogModule,
+        MatInputModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatButtonModule,
+        TranslateErrorPipeModule,
+        LeafletModule
+    ],
   exports: [EditTripDialogComponent]
 })
 export class EditTripDialogModule { }
